@@ -87,8 +87,8 @@ namespace UnitTestCreateTask
                 //verify the entity created inside the plugin the values we expect
                 Assert.AreEqual("Send e-mail to the new customer.", actualEntity["subject"]);
                 Assert.AreEqual("Follow up with the customer. Check if there are any new issues that need resolution.", actualEntity["description"]);
-               // Assert.AreEqual(DateTime.Now.AddDays(2).ToLongDateString(), ((DateTime)actualEntity["scheduledstart"]).ToLongDateString()); //lazy way to get around milliseconds being different
-               // Assert.AreEqual(DateTime.Now.AddDays(2).ToLongDateString(), ((DateTime)actualEntity["scheduledend"]).ToLongDateString()); //lazy way to get around milliseconds being different
+                Assert.AreEqual(DateTime.Now.ToLongDateString(), ((DateTime)actualEntity["scheduledstart"]).ToLongDateString()); //lazy way to get around milliseconds being different
+                Assert.AreEqual(DateTime.Now.AddDays(2).ToLongDateString(), ((DateTime)actualEntity["scheduledend"]).ToLongDateString()); //lazy way to get around milliseconds being different
                 Assert.AreEqual("account", actualEntity["category"]);
                 Assert.AreEqual(accountId, ((EntityReference)actualEntity["regardingobjectid"]).Id);
             }
